@@ -20,7 +20,7 @@ namespace IntelOrca.Biohazard.BioRand.RECV
         private RandomizedRdt[] _rdts = new RandomizedRdt[205];
         private byte[] _elf = new byte[0];
 
-        protected override BioVersion BiohazardVersion => BioVersion.BiohazardCv;
+        public override BioVersion BiohazardVersion => BioVersion.BiohazardCv;
         internal override IDoorHelper DoorHelper { get; } = new ReCvDoorHelper();
         internal override IItemHelper ItemHelper { get; } = new ReCvItemHelper();
         internal override IEnemyHelper EnemyHelper => new ReCvEnemyHelper();

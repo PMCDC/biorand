@@ -21,13 +21,14 @@ namespace IntelOrca.Biohazard.BioRand
         protected MemoryStream ExePatch { get; } = new MemoryStream();
         internal List<RandomInventory?> Inventories { get; } = new List<RandomInventory?>();
 
-        protected abstract BioVersion BiohazardVersion { get; }
+        
         internal abstract IDoorHelper DoorHelper { get; }
         internal abstract IItemHelper ItemHelper { get; }
         internal abstract IEnemyHelper EnemyHelper { get; }
         internal abstract INpcHelper NpcHelper { get; }
 
         public abstract bool ValidateGamePath(string path);
+        public abstract BioVersion BiohazardVersion { get; }
 
         protected abstract string GetDataPath(string installPath);
         protected abstract RdtId[] GetRdtIds(string dataPath);
@@ -655,6 +656,11 @@ namespace IntelOrca.Biohazard.BioRand
                 result.Add(actor.ToActorString());
             }
             return result.OrderBy(x => x).ToArray();
+        }
+
+        public virtual string[] GetPlayerCharactersDataDirectories(int index)
+        {
+            return DataManager.GetDirectories(BiohazardVersion, $"pld{index}").ToArray();
         }
 
         protected string GetSelectedActor(RandoConfig config)

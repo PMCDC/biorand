@@ -14,7 +14,7 @@ namespace IntelOrca.Biohazard.BioRand.RE3
     {
         private readonly Re3EnemyHelper _enemyHelper = new Re3EnemyHelper();
 
-        protected override BioVersion BiohazardVersion => BioVersion.Biohazard3;
+        public override BioVersion BiohazardVersion => BioVersion.Biohazard3;
         internal override IDoorHelper DoorHelper { get; } = new Re3DoorHelper();
         internal override IItemHelper ItemHelper { get; } = new Re3ItemHelper();
         internal override IEnemyHelper EnemyHelper => _enemyHelper;

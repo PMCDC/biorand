@@ -21,7 +21,7 @@ namespace IntelOrca.Biohazard.BioRand.RE1
         private Re1ItemHelper? _itemHelper;
         private object _playerFaceSync = new object();
 
-        protected override BioVersion BiohazardVersion => BioVersion.Biohazard1;
+        public override BioVersion BiohazardVersion => BioVersion.Biohazard1;
         internal override IDoorHelper DoorHelper { get; } = new Re1DoorHelper();
         internal override IItemHelper ItemHelper
         {

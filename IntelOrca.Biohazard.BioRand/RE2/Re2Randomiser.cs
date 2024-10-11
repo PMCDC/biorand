@@ -22,7 +22,7 @@ namespace IntelOrca.Biohazard.BioRand.RE2
 
         private readonly Re2EnemyHelper _enemyHelper = new Re2EnemyHelper();
 
-        protected override BioVersion BiohazardVersion => BioVersion.Biohazard2;
+        public override BioVersion BiohazardVersion => BioVersion.Biohazard2;
         internal override IDoorHelper DoorHelper { get; } = new Re2DoorHelper();
         internal override IItemHelper ItemHelper { get; } = new Re2ItemHelper();
         internal override IEnemyHelper EnemyHelper => _enemyHelper;

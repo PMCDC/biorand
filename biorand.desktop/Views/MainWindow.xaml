@@ -1,0 +1,175 @@
+﻿<Window x:Class="biorand.desktop.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:biorand.desktop.Views"
+        xmlns:common="clr-namespace:biorand.desktop.Views.Common"
+        xmlns:mouse="clr-namespace:biorand.desktop.Behaviors.MouseBehaviors"
+        xmlns:game="clr-namespace:biorand.desktop.Views.Game"
+        xmlns:constants="clr-namespace:biorand.desktop.Constants"
+        xmlns:player="clr-namespace:biorand.desktop.Views.Player"
+        xmlns:seed="clr-namespace:biorand.desktop.Views.Seed"
+        xmlns:prism="http://prismlibrary.com/"
+        MinWidth="1600"
+        MinHeight="600"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource BiorandMainBackgroundColor}"
+        mc:Ignorable="d"
+        Title="BioRand: A Resident Evil Randomizer" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Left Panel - Game List -->
+        <Border>
+            <ListView d:Width="64" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                      ItemsSource="{Binding GameListItems}" SelectedItem="{Binding SelectedGameListItem}" SelectionMode="Single">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <game:GameListItem />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Border>
+
+        <!-- Right Panel - Content -->
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!--Top Bar - Links-->
+            <DockPanel Margin="10,5,0,0" LastChildFill="False" >
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="BioRand - " Foreground="{StaticResource BiorandImportantTextColor}" />
+                    <TextBlock d:Text="0.0.0" Text="{Binding BioRandVersion}" Foreground="{StaticResource BiorandImportantTextColor}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
+                    <Border Style="{StaticResource ClickableUrlBorderStyle}" Margin="0,0,10,0" 
+                            mouse:MouseBehaviors.MouseUpCommand="{Binding NavigateUriClickCommand}" 
+                            mouse:MouseBehaviors.MouseUpCommandParameter="{x:Static constants:UrlConstants.BIORAND_URL}">
+                        <StackPanel Margin="10,2,10,2" Orientation="Horizontal">
+                            <Image Width="12" Source="{StaticResource UrlIcon}" />
+                            <TextBlock Margin="5,0,0,0" Text="Website"/>
+                        </StackPanel>
+                        <Border.ToolTip>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Open " />
+                                <TextBlock Text="{x:Static constants:UrlConstants.BIORAND_URL}" Foreground="{StaticResource BiorandImportantTextColor}" />
+                                <TextBlock Text=" in your default Web Browser." />
+                            </StackPanel>
+                        </Border.ToolTip>
+                    </Border>
+                    <Border Style="{StaticResource ClickableUrlBorderStyle}" Margin="0,0,10,0"
+                            mouse:MouseBehaviors.MouseUpCommand="{Binding NavigateUriClickCommand}" 
+                            mouse:MouseBehaviors.MouseUpCommandParameter="{x:Static constants:UrlConstants.DISCORD_URL}">
+                        <StackPanel Margin="10,2,10,2" Orientation="Horizontal">
+                            <Image Width="12" Source="{StaticResource UrlIcon}" />
+                            <TextBlock Margin="5,0,0,0" Text="Discord"/>
+                        </StackPanel>
+                        <Border.ToolTip>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Open " />
+                                <TextBlock Text="{x:Static constants:UrlConstants.DISCORD_URL}" Foreground="{StaticResource BiorandImportantTextColor}" />
+                                <TextBlock Text=" in your default Web Browser." />
+                            </StackPanel>
+                        </Border.ToolTip>
+                    </Border>
+                    <Border Style="{StaticResource ClickableUrlBorderStyle}" Margin="0,0,10,0"
+                            mouse:MouseBehaviors.MouseUpCommand="{Binding NavigateUriClickCommand}" 
+                            mouse:MouseBehaviors.MouseUpCommandParameter="{x:Static constants:UrlConstants.GITHUB_URL}">
+                        <StackPanel Margin="10,2,10,2" Orientation="Horizontal">
+                            <Image Width="12" Source="{StaticResource UrlIcon}" />
+                            <TextBlock Margin="5,0,0,0" Text="GitHub"/>
+                        </StackPanel>
+                        <Border.ToolTip>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Open " />
+                                <TextBlock Text="{x:Static constants:UrlConstants.GITHUB_URL}" Foreground="{StaticResource BiorandImportantTextColor}" />
+                                <TextBlock Text=" in your default Web Browser." />
+                            </StackPanel>
+                        </Border.ToolTip>
+                    </Border>
+                    <Border Style="{StaticResource ClickableUrlBorderStyle}" Margin="0,0,10,0"
+                            mouse:MouseBehaviors.MouseUpCommand="{Binding NavigateUriClickCommand}" 
+                            mouse:MouseBehaviors.MouseUpCommandParameter="{x:Static constants:UrlConstants.TWITTER_URL}">
+                        <StackPanel Margin="10,2,10,2" Orientation="Horizontal">
+                            <Image Width="12" Source="{StaticResource UrlIcon}" />
+                            <TextBlock Margin="5,0,0,0" Text="Twitter"/>
+                        </StackPanel>
+                        <Border.ToolTip>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Open " />
+                                <TextBlock Text="{x:Static constants:UrlConstants.TWITTER_URL}" Foreground="{StaticResource BiorandImportantTextColor}" />
+                                <TextBlock Text=" in your default Web Browser." />
+                            </StackPanel>
+                        </Border.ToolTip>
+                    </Border>
+                    <Border Style="{StaticResource ClickableUrlBorderStyle}" Margin="0,0,10,0"
+                            mouse:MouseBehaviors.MouseUpCommand="{Binding NavigateUriClickCommand}" 
+                            mouse:MouseBehaviors.MouseUpCommandParameter="{x:Static constants:UrlConstants.DOCUMENTATION_URL}">
+                        <StackPanel Margin="10,2,10,2" Orientation="Horizontal">
+                            <Image Width="12" Source="{StaticResource UrlIcon}" />
+                            <TextBlock Margin="5,0,0,0" Text="View Documentation"/>
+                        </StackPanel>
+                        <Border.ToolTip>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Open " />
+                                <TextBlock Text="{x:Static constants:UrlConstants.DOCUMENTATION_URL}" Foreground="{StaticResource BiorandImportantTextColor}" />
+                                <TextBlock Text=" in your default Web Browser." />
+                            </StackPanel>
+                        </Border.ToolTip>
+                    </Border>
+                </StackPanel>
+            </DockPanel>
+
+            <!-- Content -->
+            <Grid Grid.Row="1" Margin="10,20,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <seed:SeedConfiguration Margin="0,0,10,0" />
+                        <Button Grid.Column="1" Margin="40,0,0,0" Height="80" Style="{StaticResource PlayReButtonStyle}">
+                            <StackPanel Orientation="Horizontal" Margin="10,0,10,0">
+                                <Image Source="{StaticResource PlayIcon}" Width="36" />
+                                <TextBlock Margin="10,0,0,0" Text="START RE2" FontSize="36" />
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <player:PlayerConfiguration Margin="0,10,0,0" DataContext="{Binding PlayerConfigurationViewModel}" />
+                        <common:BioConfigurationGroup Margin="0,10,0,0" Grid.Row="1" GroupTitle="Another Configuration" IsGroupEnabled="True" IsGroupTogglelable="True">
+                            <common:BioConfigurationGroup.GroupContent>
+                                <Grid Width="350" Height="200" />
+                            </common:BioConfigurationGroup.GroupContent>
+                        </common:BioConfigurationGroup>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+        </Grid>
+    </Grid>
+
+</Window>
