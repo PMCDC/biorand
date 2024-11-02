@@ -3,9 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:bio="clr-namespace:IntelOrca.Biohazard;assembly=IntelOrca.Biohazard"
              xmlns:local="clr-namespace:biorand.desktop.Views.Seed"
              xmlns:common="clr-namespace:biorand.desktop.Views.Common"
              xmlns:mouse="clr-namespace:biorand.desktop.Behaviors.MouseBehaviors"
+             xmlns:textBox="clr-namespace:biorand.desktop.Behaviors.TextBoxBehaviors"
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True"
              mc:Ignorable="d">
@@ -16,8 +18,7 @@
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <local:QR Seed="{Binding RandoConfig}" />
-
+                <local:QR Seed="{Binding Seed}" />
                 <Grid Grid.Column="1" Margin="10,0,0,0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
@@ -25,7 +26,7 @@
                         <RowDefinition Height="*" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <TextBox d:Text="R820-HKKY-ZXZZZ0ZZZZGZ4J5HH7ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ" Text="R820-HKKY-ZXZZZ0ZZZZGZ4J5HH7ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ" Style="{StaticResource SeedTextboxStyle}" />
+                    <TextBox d:Text="R820-HKKY-ZXZZZ0ZZZZGZ4J5HH7ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ" textBox:TextBoxBehaviors.TextChangedCommand="{Binding SeedTextChangedCommand}" Text="{Binding SeedText}" Style="{StaticResource SeedTextboxStyle}" />
                     <Grid Grid.Row="1" Margin="0,10,0,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
@@ -33,7 +34,7 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <ComboBox SelectedIndex="0">
+                        <ComboBox SelectedIndex="0" Visibility="{Binding BioVersion, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter={x:Static bio:BioVersion.Biohazard2}}">
                             <ComboBoxItem>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="Leon A" Style="{StaticResource LeonScenarioVariantTextStyle}" Margin="20,0,20,0"/>
@@ -69,7 +70,8 @@
                         <Border Style="{StaticResource ClickableUrlBorderStyle}" Margin="0,0,10,0">
                             <StackPanel Margin="10,2,10,2" Orientation="Horizontal">
                                 <Image Width="12" Source="{StaticResource FileIcon}" />
-                                <TextBlock Margin="5,0,0,0" Text="Leon Log"/>
+                                <TextBlock Margin="5,0,0,0" Text="{Binding PlayerName0}" d:Text="Leon"/>
+                                <TextBlock Text=" Log"/>
                             </StackPanel>
                             <Border.ToolTip>
                                 <StackPanel Orientation="Horizontal">
@@ -82,7 +84,8 @@
                         <Border Style="{StaticResource ClickableUrlBorderStyle}" Margin="0,0,10,0">
                             <StackPanel Margin="10,2,10,2" Orientation="Horizontal">
                                 <Image Width="12" Source="{StaticResource FileIcon}" />
-                                <TextBlock Margin="5,0,0,0" Text="Claire Log"/>
+                                <TextBlock Margin="5,0,0,0" Text="{Binding PlayerName1}" d:Text="Claire"/>
+                                <TextBlock  Text=" Log"/>
                             </StackPanel>
                             <Border.ToolTip>
                                 <StackPanel Orientation="Horizontal">

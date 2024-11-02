@@ -1,7 +1,9 @@
 ﻿using biorand.desktop.Factories;
 using biorand.desktop.ViewModels.Game;
 using biorand.desktop.ViewModels.Player;
+using biorand.desktop.ViewModels.Seed;
 using biorand.desktop.Views.Game;
+using biorand.desktop.Views.Seed;
 using IntelOrca.Biohazard;
 using System;
 using System.Collections.Generic;
@@ -19,6 +21,7 @@ public class MainWindowViewModel : BindableBase
     private ObservableCollection<GameListItemViewModel> _gameListItems = new ObservableCollection<GameListItemViewModel>();
     private GameListItemViewModel? _selectedGameListItem;
     private PlayerConfigurationViewModel _playerConfigurationViewModel;
+    private SeedConfigurationViewModel _seedConfigurationViewModel;
 
     private string _bioRandVersion;
 
@@ -33,6 +36,7 @@ public class MainWindowViewModel : BindableBase
         GameListItems.Add(new GameListItemViewModel() { IsSelected = false, BioVersion = BioVersion.BiohazardCv, DisplayName = "Resident Evil CVX", ImagePath = "/Resources/Images/RECVX/logo.png" });
 
         PlayerConfigurationViewModel = new PlayerConfigurationViewModel(_appContext) { IsEnabled = true };
+        SeedConfigurationViewModel = new SeedConfigurationViewModel(_appContext);
         BioRandVersion = "UI Revision Branch";
 
         NavigateUriClickCommand = new DelegateCommand<string>(OnNavigateUriClickCommand);
@@ -41,6 +45,7 @@ public class MainWindowViewModel : BindableBase
     public ObservableCollection<GameListItemViewModel> GameListItems { get => _gameListItems; set => SetProperty(ref _gameListItems, value); }
     public GameListItemViewModel? SelectedGameListItem { get => _selectedGameListItem; set { SetProperty(ref _selectedGameListItem, value); RefreshControls(); } }
     public PlayerConfigurationViewModel PlayerConfigurationViewModel { get => _playerConfigurationViewModel; set => SetProperty(ref _playerConfigurationViewModel, value); }
+    public SeedConfigurationViewModel SeedConfigurationViewModel { get => _seedConfigurationViewModel; set => SetProperty(ref _seedConfigurationViewModel, value); }
     public string BioRandVersion { get => _bioRandVersion; set => SetProperty(ref _bioRandVersion, value); }
     public DelegateCommand<string> NavigateUriClickCommand { get; }
 
@@ -50,6 +55,7 @@ public class MainWindowViewModel : BindableBase
         _appContext.SetSelectedVersion(SelectedGameListItem.BioVersion);
         foreach (var g in GameListItems) { g.IsSelected = g.BioVersion == _appContext.SelectedVersion; }
         PlayerConfigurationViewModel.RefreshControls();
+        SeedConfigurationViewModel.RefreshControls();
     }
 
     private void OnNavigateUriClickCommand(string uri)

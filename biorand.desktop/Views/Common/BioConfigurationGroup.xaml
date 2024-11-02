@@ -13,10 +13,9 @@
         </Grid.RowDefinitions>
         <Border Background="{StaticResource BiorandGroupHeaderBackgroundColor}" CornerRadius="8" HorizontalAlignment="Left" Width="200" Margin="5,0,0,-10" Panel.ZIndex="1">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <toggleButtons:GroupHeaderToggleButton 
+                <toggleButtons:CustomToggleButton 
                     Visibility="{Binding IsGroupTogglelable, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource BoolToVisibilityConverter}}" 
                     ToggleText="{Binding GroupTitle, RelativeSource={RelativeSource AncestorType=UserControl}}" 
-                    Style="{StaticResource GroupHeaderToggleButton}" 
                     IsChecked="{Binding IsGroupEnabled, RelativeSource={RelativeSource AncestorType=UserControl}}" />
                 <TextBlock 
                     Visibility="{Binding IsGroupTogglelable, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=negate}" 

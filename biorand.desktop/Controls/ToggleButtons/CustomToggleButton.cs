@@ -3,9 +3,9 @@ using System.Windows.Controls.Primitives;
 
 namespace biorand.desktop.Controls.ToggleButtons;
 
-public class GroupHeaderToggleButton : ToggleButton
+public class CustomToggleButton : ToggleButton
 {
-    public static readonly DependencyProperty ToggleTextProperty = DependencyProperty.Register(nameof(ToggleText), typeof(string), typeof(GroupHeaderToggleButton), new PropertyMetadata(string.Empty));
+    public static readonly DependencyProperty ToggleTextProperty = DependencyProperty.Register(nameof(ToggleText), typeof(string), typeof(CustomToggleButton), new PropertyMetadata(string.Empty));
 
     public string ToggleText
     {

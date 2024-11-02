@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="biorand.desktop.Views.Door.DoorConfiguration"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:common="clr-namespace:biorand.desktop.Views.Common"
+             xmlns:toggleButtons="clr-namespace:biorand.desktop.Controls.ToggleButtons"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             xmlns:local="clr-namespace:biorand.desktop.Views.Door"
+             mc:Ignorable="d">
+    <common:BioConfigurationGroup GroupTitle="Randomize Doors" IsGroupEnabled="True" IsGroupTogglelable="True">
+        <common:BioConfigurationGroup.GroupContent>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <toggleButtons:CustomToggleButton ToggleText="Prioritize rooms with cutscenes"  />
+            </Grid>
+        </common:BioConfigurationGroup.GroupContent>
+    </common:BioConfigurationGroup>
+</UserControl>

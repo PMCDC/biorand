@@ -20,6 +20,7 @@
                 <ResourceDictionary Source="Resources/Styles/Images.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/Borders.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/TextBoxes.xaml"/>
+                <ResourceDictionary Source="Resources/Styles/Storyboards.xaml"/>
                 
                 <!--Converters-->
                 <ResourceDictionary Source="Resources/Converters.xaml"/>

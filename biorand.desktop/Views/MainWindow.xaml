@@ -10,9 +10,11 @@
         xmlns:constants="clr-namespace:biorand.desktop.Constants"
         xmlns:player="clr-namespace:biorand.desktop.Views.Player"
         xmlns:seed="clr-namespace:biorand.desktop.Views.Seed"
+        xmlns:door="clr-namespace:biorand.desktop.Views.Door"
         xmlns:prism="http://prismlibrary.com/"
-        MinWidth="1600"
+        MinWidth="1250"
         MinHeight="600"
+        d:Width="1600"
         prism:ViewModelLocator.AutoWireViewModel="True"
         WindowStartupLocation="CenterScreen"
         Background="{StaticResource BiorandMainBackgroundColor}"
@@ -38,6 +40,11 @@
 
         <!-- Right Panel - Content -->
         <Grid Grid.Column="1">
+            <Grid.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard Storyboard="{StaticResource FadeInStoryboard}"/>
+                </EventTrigger>
+            </Grid.Triggers>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
@@ -141,8 +148,8 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <seed:SeedConfiguration Margin="0,0,10,0" />
-                        <Button Grid.Column="1" Margin="40,0,0,0" Height="80" Style="{StaticResource PlayReButtonStyle}">
+                        <seed:SeedConfiguration Margin="0,0,10,0" DataContext="{Binding SeedConfigurationViewModel}" />
+                        <Button Grid.Column="1" Margin="40,0,0,0" Height="80" Style="{StaticResource PlayReButtonStyle}" d:Visibility="Visible" Visibility="Collapsed">
                             <StackPanel Orientation="Horizontal" Margin="10,0,10,0">
                                 <Image Source="{StaticResource PlayIcon}" Width="36" />
                                 <TextBlock Margin="10,0,0,0" Text="START RE2" FontSize="36" />
@@ -159,12 +166,8 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
-                        <player:PlayerConfiguration Margin="0,10,0,0" DataContext="{Binding PlayerConfigurationViewModel}" />
-                        <common:BioConfigurationGroup Margin="0,10,0,0" Grid.Row="1" GroupTitle="Another Configuration" IsGroupEnabled="True" IsGroupTogglelable="True">
-                            <common:BioConfigurationGroup.GroupContent>
-                                <Grid Width="350" Height="200" />
-                            </common:BioConfigurationGroup.GroupContent>
-                        </common:BioConfigurationGroup>
+                        <player:PlayerConfiguration Margin="0,10,0,0" DataContext="{Binding PlayerConfigurationViewModel}"/>
+                        <door:DoorConfiguration Margin="0,10,0,0" Grid.Row="1" />
                     </Grid>
                 </Grid>
             </Grid>
