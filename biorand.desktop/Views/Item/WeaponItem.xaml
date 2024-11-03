@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="biorand.desktop.Views.Item.WeaponItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:biorand.desktop.Views.Item"
+             xmlns:mouse="clr-namespace:biorand.desktop.Behaviors.MouseBehaviors"
+             xmlns:prism="http://prismlibrary.com/"
+             mc:Ignorable="d">
+    <Grid Cursor="Hand">
+        <StackPanel Orientation="Vertical" mouse:MouseBehaviors.MouseUpCommand="{Binding UncheckWeaponCommand}">
+            <Image RenderOptions.BitmapScalingMode="HighQuality" Source="{Binding ImagePath}" d:Source="/Resources/Images/RE2/Weapons/Shotgun.png" />
+            <Border Margin="4,-25,0,0" Height="20">
+                <TextBlock FontSize="10" Text="{Binding DisplayName}" d:Text="Shotgun" VerticalAlignment="Bottom" Typography.Capitals="AllSmallCaps" />
+            </Border>
+        </StackPanel>
+        <StackPanel Background="Black" Opacity="0.4" Cursor="Hand" Visibility="{Binding IsChecked, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=negate}" d:Visibility="Collapsed"
+                    mouse:MouseBehaviors.MouseUpCommand="{Binding CheckWeaponCommand}"/>
+    </Grid>
+
+</UserControl>
