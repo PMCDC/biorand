@@ -1,15 +1,15 @@
-﻿<UserControl x:Class="biorand.desktop.Views.Door.DoorConfiguration"
+﻿<UserControl x:Class="biorand.desktop.Views.Cutscene.CutsceneConfiguration"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:biorand.desktop.Views.Cutscene"
              xmlns:common="clr-namespace:biorand.desktop.Views.Common"
              xmlns:toggleButtons="clr-namespace:biorand.desktop.Controls.ToggleButtons"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True"
-             xmlns:local="clr-namespace:biorand.desktop.Views.Door"
              mc:Ignorable="d">
-    <common:BioConfigurationGroup GroupTitle="Randomize Doors" IsGroupEnabled="True" IsGroupTogglelable="True">
+    <common:BioConfigurationGroup GroupTitle="Randomize Cutscenes" IsGroupEnabled="True" IsGroupTogglelable="True">
         <common:BioConfigurationGroup.GroupContent>
             <Grid>
                 <Grid.RowDefinitions>
@@ -17,9 +17,9 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <common:BioSlider SliderTitle="Number of Segments" LowText="1" HighText="4" />
-                <common:BioSlider Margin="0,10,0,0" Grid.Row="1" SliderTitle="Segment Size" LowText="Low" HighText="High" />
-                <toggleButtons:CustomToggleButton Margin="0,10,0,0" Grid.Row="2" ToggleText="Prioritize rooms with cutscenes" HorizontalAlignment="Left"  />
+                <toggleButtons:CustomToggleButton ToggleText="Allow any character voice" HorizontalAlignment="Left"  />
+                <toggleButtons:CustomToggleButton Grid.Row="1" ToggleText="Reduce awkward silences" HorizontalAlignment="Left"   />
+                <toggleButtons:CustomToggleButton Grid.Row="2" ToggleText="Random events" HorizontalAlignment="Left"  />
             </Grid>
         </common:BioConfigurationGroup.GroupContent>
     </common:BioConfigurationGroup>

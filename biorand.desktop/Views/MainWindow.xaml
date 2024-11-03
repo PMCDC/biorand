@@ -10,10 +10,11 @@
         xmlns:constants="clr-namespace:biorand.desktop.Constants"
         xmlns:player="clr-namespace:biorand.desktop.Views.Player"
         xmlns:seed="clr-namespace:biorand.desktop.Views.Seed"
+        xmlns:cutscene="clr-namespace:biorand.desktop.Views.Cutscene"
         xmlns:door="clr-namespace:biorand.desktop.Views.Door"
         xmlns:prism="http://prismlibrary.com/"
         MinWidth="1250"
-        MinHeight="600"
+        MinHeight="650"
         d:Width="1600"
         prism:ViewModelLocator.AutoWireViewModel="True"
         WindowStartupLocation="CenterScreen"
@@ -164,10 +165,12 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
                         <player:PlayerConfiguration Margin="0,10,0,0" DataContext="{Binding PlayerConfigurationViewModel}"/>
-                        <door:DoorConfiguration Margin="0,10,0,0" Grid.Row="1" />
+                        <cutscene:CutsceneConfiguration Margin="0,10,0,0" Grid.Row="1" />
+                        <door:DoorConfiguration Margin="0,10,0,0" Grid.Row="2" />
                     </Grid>
                 </Grid>
             </Grid>

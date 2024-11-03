@@ -21,6 +21,7 @@
                 <ResourceDictionary Source="Resources/Styles/Borders.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/TextBoxes.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/Storyboards.xaml"/>
+                <ResourceDictionary Source="Resources/Styles/Sliders.xaml"/>
                 
                 <!--Converters-->
                 <ResourceDictionary Source="Resources/Converters.xaml"/>
