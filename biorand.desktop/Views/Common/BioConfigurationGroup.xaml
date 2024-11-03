@@ -25,7 +25,7 @@
                     Typography.Capitals="AllSmallCaps"/>
             </StackPanel>
         </Border>
-        <Border Grid.Row="1" Background="{StaticResource BiorandGroupBackgroundColor}" CornerRadius="8">
+        <Border Grid.Row="1" Background="{Binding ContentBackground, RelativeSource={RelativeSource AncestorType=UserControl}}" CornerRadius="8">
             <ContentPresenter 
                 Margin="10,15,10,10" 
                 Content="{Binding GroupContent, RelativeSource={RelativeSource AncestorType=UserControl}}" />

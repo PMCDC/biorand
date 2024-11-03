@@ -18,7 +18,7 @@
         </Grid.ColumnDefinitions>
         <TextBlock Grid.ColumnSpan="4" Text="{Binding SliderTitle, RelativeSource={RelativeSource AncestorType=UserControl}}" FontSize="14" Typography.Capitals="AllSmallCaps" />
         <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding LowText, RelativeSource={RelativeSource AncestorType=UserControl}}" Margin="10,0,0,0" FontSize="14" Typography.Capitals="AllSmallCaps"/>
-        <Slider Grid.Row="1" Grid.Column="1" SmallChange="1" LargeChange="4" Minimum="0" Maximum="3" ValueChanged="Slider_ValueChanged" />
+        <Slider Grid.Row="1" Grid.Column="1" SmallChange="1" LargeChange="4" Minimum="0" Maximum="{Binding Maximum, RelativeSource={RelativeSource AncestorType=UserControl}}" ValueChanged="Slider_ValueChanged" />
         <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding HighText, RelativeSource={RelativeSource AncestorType=UserControl}}" Margin="0,0,10,0" FontSize="14" Typography.Capitals="AllSmallCaps"/>
     </Grid>
 </UserControl>

@@ -40,5 +40,8 @@ namespace biorand.desktop.Views.Common
         //is togglelable
         public static readonly DependencyProperty IsGroupTogglelableProperty = DependencyProperty.Register("IsGroupTogglelable", typeof(bool), typeof(BioConfigurationGroup), new PropertyMetadata(null));
         public bool IsGroupTogglelable { get { return (bool)GetValue(IsGroupTogglelableProperty); } set { SetValue(IsGroupTogglelableProperty, value); } }
+
+        public static readonly DependencyProperty ContentBackgroundProperty = DependencyProperty.Register("ContentBackground", typeof(SolidColorBrush), typeof(BioConfigurationGroup), new PropertyMetadata(new SolidColorBrush(Color.FromRgb(29,29,29))));
+        public SolidColorBrush ContentBackground { get { return (SolidColorBrush)GetValue(ContentBackgroundProperty); } set { SetValue(ContentBackgroundProperty, value); } }
     }
 }

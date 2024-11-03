@@ -34,6 +34,9 @@ namespace biorand.desktop.Views.Common
         public static readonly DependencyProperty HighTextProperty = DependencyProperty.Register("HighText", typeof(string), typeof(BioSlider), new PropertyMetadata(null));
         public string HighText { get { return (string)GetValue(HighTextProperty); } set { SetValue(HighTextProperty, value); } }
 
+        public static readonly DependencyProperty MaximumProperty = DependencyProperty.Register("Maximum", typeof(double), typeof(BioSlider), new PropertyMetadata(null));
+        public double Maximum { get { return (double)GetValue(MaximumProperty); } set { SetValue(MaximumProperty, value); } }
+
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             if (sender is Slider slider) { double newValue = Math.Round(slider.Value / slider.SmallChange) * slider.SmallChange; if (slider.Value != newValue) { slider.Value = newValue; } }

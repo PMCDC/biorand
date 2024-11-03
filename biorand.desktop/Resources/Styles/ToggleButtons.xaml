@@ -13,14 +13,61 @@
                         </StackPanel>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsChecked" Value="True">
+                        <!--Circle Style-->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="True" />
+                                <Condition Property="IsEnabled" Value="True" />
+                                <Condition Property="IconStyle" Value="Circle" />
+                            </MultiTrigger.Conditions>
                             <Setter TargetName="ToggleText" Property="Foreground" Value="White"/>
                             <Setter TargetName="ToggleImage" Property="Source" Value="{StaticResource ToggleGroupCheckedIcon}"/>
-                        </Trigger>
-                        <Trigger Property="IsChecked" Value="False">
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="True" />
+                                <Condition Property="IsEnabled" Value="False" />
+                                <Condition Property="IconStyle" Value="Circle" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="ToggleText" Property="Foreground" Value="White"/>
+                            <Setter TargetName="ToggleImage" Property="Source" Value="{StaticResource ToggleGroupCheckedAndDisabledIcon}"/>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="False" />
+                                <Condition Property="IconStyle" Value="Circle" />
+                            </MultiTrigger.Conditions>
                             <Setter TargetName="ToggleText" Property="Foreground" Value="DarkGray"/>
                             <Setter TargetName="ToggleImage" Property="Source" Value="{StaticResource ToggleGroupNotCheckedIcon}"/>
-                        </Trigger>
+                        </MultiTrigger>
+
+                        <!--Square Style-->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="True" />
+                                <Condition Property="IsEnabled" Value="True" />
+                                <Condition Property="IconStyle" Value="Square" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="ToggleText" Property="Foreground" Value="White"/>
+                            <Setter TargetName="ToggleImage" Property="Source" Value="{StaticResource ToggleCheckedIcon}"/>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="True" />
+                                <Condition Property="IsEnabled" Value="False" />
+                                <Condition Property="IconStyle" Value="Square" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="ToggleText" Property="Foreground" Value="White"/>
+                            <Setter TargetName="ToggleImage" Property="Source" Value="{StaticResource ToggleCheckedAndDisabledIcon}"/>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="False" />
+                                <Condition Property="IconStyle" Value="Square" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="ToggleText" Property="Foreground" Value="DarkGray"/>
+                            <Setter TargetName="ToggleImage" Property="Source" Value="{StaticResource ToggleNotCheckedIcon}"/>
+                        </MultiTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

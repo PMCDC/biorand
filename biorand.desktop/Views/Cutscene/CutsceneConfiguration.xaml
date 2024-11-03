@@ -10,6 +10,20 @@
              prism:ViewModelLocator.AutoWireViewModel="True"
              mc:Ignorable="d">
     <common:BioConfigurationGroup GroupTitle="Randomize Cutscenes" IsGroupEnabled="True" IsGroupTogglelable="True">
+        <common:BioConfigurationGroup.ToolTip>
+            <Border>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Randomize Cutscenes:" FontWeight="Bold" />
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Randomize the " />
+                        <TextBlock Text="voices" Foreground="{StaticResource BiorandImportantTextColor}" />
+                        <TextBlock Text=" of the player and NPCs during " />
+                        <TextBlock Text="cutscenes" Foreground="{StaticResource BiorandImportantTextColor}" />
+                        <TextBlock Text=" ." />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </common:BioConfigurationGroup.ToolTip>
         <common:BioConfigurationGroup.GroupContent>
             <Grid>
                 <Grid.RowDefinitions>
@@ -17,9 +31,42 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <toggleButtons:CustomToggleButton ToggleText="Allow any character voice" HorizontalAlignment="Left"  />
-                <toggleButtons:CustomToggleButton Grid.Row="1" ToggleText="Reduce awkward silences" HorizontalAlignment="Left"   />
-                <toggleButtons:CustomToggleButton Grid.Row="2" ToggleText="Random events" HorizontalAlignment="Left"  />
+                <toggleButtons:CustomToggleButton ToggleText="Allow any character voice" IconStyle="Square" HorizontalAlignment="Left">
+                    <toggleButtons:CustomToggleButton.ToolTip>
+                        <Border>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="Allow Any Character Voice:" FontWeight="Bold" />
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="If enabled, characters can speak other character's voice line." />
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </toggleButtons:CustomToggleButton.ToolTip>
+                </toggleButtons:CustomToggleButton>
+                <toggleButtons:CustomToggleButton Grid.Row="1" ToggleText="Reduce awkward silences" IconStyle="Square" HorizontalAlignment="Left">
+                    <toggleButtons:CustomToggleButton.ToolTip>
+                        <Border>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="Reduce Awkward Silences:" FontWeight="Bold" />
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="If enabled, voice lines are chosen to best match the length of the original line. This can however reduce the RNG." />
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </toggleButtons:CustomToggleButton.ToolTip>
+                </toggleButtons:CustomToggleButton>
+                <toggleButtons:CustomToggleButton Grid.Row="2" ToggleText="Random events" IconStyle="Square" HorizontalAlignment="Left">
+                    <toggleButtons:CustomToggleButton.ToolTip>
+                        <Border>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="Random Events:" FontWeight="Bold" />
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="If enabled, random events, such as enemy encounters or custom cutscenes, can occur." />
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </toggleButtons:CustomToggleButton.ToolTip>
+                </toggleButtons:CustomToggleButton>
             </Grid>
         </common:BioConfigurationGroup.GroupContent>
     </common:BioConfigurationGroup>

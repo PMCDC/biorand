@@ -21,7 +21,7 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Margin="0"
                             Padding="3"
-                            HorizontalContentAlignment="Left"
+                            HorizontalContentAlignment="Center"
                             Content="{TemplateBinding SelectionBoxItem}"
                             ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
                             ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
