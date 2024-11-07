@@ -9,7 +9,7 @@
              mc:Ignorable="d">
     <Grid Cursor="Hand">
         <StackPanel Orientation="Vertical" mouse:MouseBehaviors.MouseUpCommand="{Binding UncheckWeaponCommand}">
-            <Image RenderOptions.BitmapScalingMode="HighQuality" Source="{Binding ImagePath}" d:Source="/Resources/Images/RE2/Weapons/Shotgun.png" />
+            <Image RenderOptions.BitmapScalingMode="HighQuality" Source="{Binding ImagePath}" Stretch="None" d:Source="/Resources/Images/RE2/Weapons/Shotgun.png" />
             <Border Margin="4,-25,0,0" Height="20">
                 <TextBlock FontSize="10" Text="{Binding DisplayName}" d:Text="Shotgun" VerticalAlignment="Bottom" Typography.Capitals="AllSmallCaps" />
             </Border>

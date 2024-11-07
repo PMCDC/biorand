@@ -1,5 +1,6 @@
 ﻿using biorand.desktop.Factories;
 using biorand.desktop.ViewModels.Game;
+using biorand.desktop.ViewModels.Item;
 using biorand.desktop.ViewModels.Player;
 using biorand.desktop.ViewModels.Seed;
 using biorand.desktop.Views.Game;
@@ -22,6 +23,7 @@ public class MainWindowViewModel : BindableBase
     private GameListItemViewModel? _selectedGameListItem;
     private PlayerConfigurationViewModel _playerConfigurationViewModel;
     private SeedConfigurationViewModel _seedConfigurationViewModel;
+    private ItemConfigurationViewModel _itemConfigurationViewModel;
 
     private string _bioRandVersion;
 
@@ -37,6 +39,7 @@ public class MainWindowViewModel : BindableBase
 
         PlayerConfigurationViewModel = new PlayerConfigurationViewModel(_appContext) { IsEnabled = true };
         SeedConfigurationViewModel = new SeedConfigurationViewModel(_appContext);
+        ItemConfigurationViewModel = new ItemConfigurationViewModel(_appContext);
         BioRandVersion = "UI Revision Branch";
 
         NavigateUriClickCommand = new DelegateCommand<string>(OnNavigateUriClickCommand);
@@ -46,6 +49,7 @@ public class MainWindowViewModel : BindableBase
     public GameListItemViewModel? SelectedGameListItem { get => _selectedGameListItem; set { SetProperty(ref _selectedGameListItem, value); RefreshControls(); } }
     public PlayerConfigurationViewModel PlayerConfigurationViewModel { get => _playerConfigurationViewModel; set => SetProperty(ref _playerConfigurationViewModel, value); }
     public SeedConfigurationViewModel SeedConfigurationViewModel { get => _seedConfigurationViewModel; set => SetProperty(ref _seedConfigurationViewModel, value); }
+    public ItemConfigurationViewModel ItemConfigurationViewModel { get => _itemConfigurationViewModel; set => SetProperty(ref _itemConfigurationViewModel, value); }
     public string BioRandVersion { get => _bioRandVersion; set => SetProperty(ref _bioRandVersion, value); }
     public DelegateCommand<string> NavigateUriClickCommand { get; }
 
@@ -56,6 +60,7 @@ public class MainWindowViewModel : BindableBase
         foreach (var g in GameListItems) { g.IsSelected = g.BioVersion == _appContext.SelectedVersion; }
         PlayerConfigurationViewModel.RefreshControls();
         SeedConfigurationViewModel.RefreshControls();
+        ItemConfigurationViewModel.RefreshControls();
     }
 
     private void OnNavigateUriClickCommand(string uri)

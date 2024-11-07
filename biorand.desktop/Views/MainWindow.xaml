@@ -30,8 +30,8 @@
 
         <!-- Left Panel - Game List -->
         <Border>
-            <ListView d:Width="64" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                      ItemsSource="{Binding GameListItems}" SelectedItem="{Binding SelectedGameListItem}" SelectionMode="Single">
+            <ListView d:Width="64" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" Background="#1d1d1d"
+                      ItemsSource="{Binding GameListItems}" SelectedItem="{Binding SelectedGameListItem}" SelectionMode="Single" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <game:GameListItem />
@@ -182,7 +182,7 @@
                             <door:DoorConfiguration Margin="0,10,0,0" Grid.Row="2" />
                         </Grid>
                         <Grid Grid.Column="1">
-                            <item:ItemConfiguration Margin="10,10,0,0" />
+                            <item:ItemConfiguration Margin="10,10,0,0" DataContext="{Binding ItemConfigurationViewModel}" />
                         </Grid>
                     </Grid>
 

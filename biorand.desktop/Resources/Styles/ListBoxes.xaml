@@ -25,11 +25,11 @@
             <Setter.Value>
                 <ControlTemplate TargetType="ListBoxItem">
                     <Border BorderThickness="{TemplateBinding Border.BorderThickness}"
-              Padding="{TemplateBinding Control.Padding}"
-              BorderBrush="{TemplateBinding Border.BorderBrush}"
-              Background="{TemplateBinding Panel.Background}"
-              Name="Bd"
-              SnapsToDevicePixels="True">
+                          Padding="{TemplateBinding Control.Padding}"
+                          BorderBrush="{TemplateBinding Border.BorderBrush}"
+                          Background="{TemplateBinding Panel.Background}"
+                          Name="Bd"
+                          SnapsToDevicePixels="True">
                         <ContentPresenter Content="{TemplateBinding ContentControl.Content}"
                            ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}"
                            ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}"

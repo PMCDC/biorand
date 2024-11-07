@@ -9,7 +9,8 @@
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True"
              mc:Ignorable="d"
-             MinWidth="400">
+             MinWidth="410"
+             MaxWidth="410">
     <common:BioConfigurationGroup GroupTitle="Randomize Items" IsGroupEnabled="True" IsGroupTogglelable="True">
         <common:BioConfigurationGroup.GroupContent>
             <Grid>
@@ -106,31 +107,17 @@
                                 <common:BioConfigurationGroup.GroupContent>
                                     <!--<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Todo..."  FontStyle="Italic" Foreground="DarkGray"/>-->
                                     <Grid HorizontalAlignment="Center">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto" />
-                                            <ColumnDefinition Width="Auto" />
-                                            <ColumnDefinition Width="Auto" />
-                                        </Grid.ColumnDefinitions>
-                                        <ListView Style="{StaticResource WeaponListViewStyle}" ItemContainerStyle="{StaticResource WeaponListViewItemStyle}" ItemsSource="{Binding WeaponItems1}" SelectedItem="{Binding SelectedGameListItem}">
+                                        <ListView ItemContainerStyle="{StaticResource UnFocusableListViewItemStyle}" ItemsSource="{Binding WeaponItems}">
                                             <ListView.ItemTemplate>
                                                 <DataTemplate>
                                                     <local:WeaponItem Margin="2" />
                                                 </DataTemplate>
                                             </ListView.ItemTemplate>
-                                        </ListView>
-                                        <ListView Grid.Column="1" Style="{StaticResource WeaponListViewStyle}" ItemContainerStyle="{StaticResource WeaponListViewItemStyle}" ItemsSource="{Binding WeaponItems2}" SelectedItem="{Binding SelectedGameListItem}">
-                                            <ListView.ItemTemplate>
-                                                <DataTemplate>
-                                                    <local:WeaponItem Margin="2" />
-                                                </DataTemplate>
-                                            </ListView.ItemTemplate>
-                                        </ListView>
-                                        <ListView Grid.Column="2" Style="{StaticResource WeaponListViewStyle}" ItemContainerStyle="{StaticResource WeaponListViewItemStyle}" ItemsSource="{Binding WeaponItems3}" SelectedItem="{Binding SelectedGameListItem}">
-                                            <ListView.ItemTemplate>
-                                                <DataTemplate>
-                                                    <local:WeaponItem Margin="2" />
-                                                </DataTemplate>
-                                            </ListView.ItemTemplate>
+                                            <ListView.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <WrapPanel VerticalAlignment="Center" Orientation="Horizontal"/>
+                                                </ItemsPanelTemplate>
+                                            </ListView.ItemsPanel>
                                         </ListView>
                                     </Grid>
                                 </common:BioConfigurationGroup.GroupContent>
