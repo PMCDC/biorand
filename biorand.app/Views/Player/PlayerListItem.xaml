@@ -1,0 +1,95 @@
+﻿<UserControl x:Class="biorand.app.Views.Player.PlayerListItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:biorand.app.Views.Player"
+             xmlns:bio="clr-namespace:IntelOrca.Biohazard;assembly=IntelOrca.Biohazard"
+             xmlns:prism="http://prismlibrary.com/"
+             mc:Ignorable="d">
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <Grid Visibility="{Binding IsFacePngAvailable, Converter={StaticResource BoolToVisibilityConverter}}">
+                <Image d:Source="/Resources/Images/RE2/Players/Leon.png" Source="{Binding FacePngPath}" Width="40" ToolTipService.InitialShowDelay="0">
+                    <Image.ToolTip>
+                        <ToolTip>
+                            <TextBlock Text="{Binding DisplayName}" />
+                        </ToolTip>
+                    </Image.ToolTip>
+                </Image>
+            </Grid>
+
+            <!-- RE1 (if face.png does not exist, mock it)-->
+            <Grid Visibility="{Binding IsFacePngAvailable, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=negate}">
+                <Grid d:Margin="0,5,0,0" Background="#000828" HorizontalAlignment="Center" Visibility="{Binding BioVersion, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter={x:Static bio:BioVersion.Biohazard1}}"
+                  ToolTipService.InitialShowDelay="0">
+                    <Grid.ToolTip>
+                        <ToolTip>
+                            <TextBlock Text="{Binding DisplayName}" />
+                        </ToolTip>
+                    </Grid.ToolTip>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10" />
+                        <RowDefinition Height="30" />
+                    </Grid.RowDefinitions>
+                    <Border Background="#000000">
+                        <TextBlock d:Text="CHRIS" Text="{Binding DisplayName, StringFormat={}{0:ToUpper}}" FontSize="6" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#809870" FontWeight="Bold" />
+                    </Border>
+                    <Image Grid.Row="1" Source="{StaticResource UserIcon}" Width="16" />
+                </Grid>
+            </Grid>
+
+
+
+            <!--RE2 (if face.png does not exist, mock it)-->
+            <Grid Visibility="{Binding IsFacePngAvailable, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=negate}">
+                <Grid d:Margin="0,5,0,0" Background="#000828" Visibility="{Binding BioVersion, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter={x:Static bio:BioVersion.Biohazard2}}"
+                  ToolTipService.InitialShowDelay="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="9" />
+                        <RowDefinition Height="45" />
+                    </Grid.RowDefinitions>
+                    <Grid.ToolTip>
+                        <ToolTip>
+                            <TextBlock Text="{Binding DisplayName}" />
+                        </ToolTip>
+                    </Grid.ToolTip>
+                    <Border Background="#000000">
+                        <TextBlock d:Text="LEON" Text="{Binding DisplayName, StringFormat={}{0:ToUpper}}" FontSize="8" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#809870" FontWeight="Bold" />
+                    </Border>
+                    <Image Grid.Row="1" Source="{StaticResource UserIcon}" Width="30" />
+                </Grid>
+            </Grid>
+
+            <!--RE3 (if face.png does not exist, mock it)-->
+            <Grid Visibility="{Binding IsFacePngAvailable, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=negate}">
+                <Grid d:Margin="0,5,0,0" Background="#000828" Visibility="{Binding BioVersion, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter={x:Static bio:BioVersion.Biohazard3}}"
+                  ToolTipService.InitialShowDelay="0">
+                    <Grid.ToolTip>
+                        <ToolTip>
+                            <TextBlock Text="{Binding DisplayName}" />
+                        </ToolTip>
+                    </Grid.ToolTip>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="9" />
+                        <RowDefinition Height="45" />
+                    </Grid.RowDefinitions>
+                    <Border Background="#000000">
+                        <TextBlock d:Text="JILL" Text="{Binding DisplayName, StringFormat={}{0:ToUpper}}" FontSize="8" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#809870" FontWeight="Bold" />
+                    </Border>
+                    <Image Grid.Row="1" Source="{StaticResource UserIcon}" Width="30" />
+                </Grid>
+            </Grid>
+
+        </StackPanel>
+    </Grid>
+</UserControl>

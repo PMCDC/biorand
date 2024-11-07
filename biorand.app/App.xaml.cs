@@ -1,8 +1,9 @@
-﻿using biorand.desktop.Views;
-using biorand.desktop.Extensions;
+﻿using biorand.app.Extensions;
+using Prism.Ioc;
+using Prism.Unity;
 using System.Windows;
 
-namespace biorand.desktop
+namespace biorand.app
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -11,7 +12,7 @@ namespace biorand.desktop
     {
         protected override Window CreateShell()
         {
-            return new MainWindow(); 
+            return new Views.MainWindow();
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -19,5 +20,4 @@ namespace biorand.desktop
             containerRegistry.RegisterDependencies();
         }
     }
-
 }

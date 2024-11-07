@@ -1,0 +1,131 @@
+﻿<UserControl x:Class="biorand.app.Views.Item.ItemConfiguration"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:biorand.app.Views.Item"
+             xmlns:common="clr-namespace:biorand.app.Views.Common"
+             xmlns:toggleButtons="clr-namespace:biorand.app.Controls.ToggleButtons"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             mc:Ignorable="d" 
+             MinWidth="410"
+             MaxWidth="410">
+    <common:BioConfigurationGroup GroupTitle="Randomize Items" IsGroupEnabled="True" IsGroupTogglelable="True">
+        <common:BioConfigurationGroup.GroupContent>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <toggleButtons:CustomToggleButton HorizontalAlignment="Left" IconStyle="Square" ToggleText="Include Documents" IsChecked="True" />
+                    <toggleButtons:CustomToggleButton Grid.Row="1" HorizontalAlignment="Left" IconStyle="Square" ToggleText="Allow Alternative Routes" IsChecked="True" IsEnabled="False" />
+                    <toggleButtons:CustomToggleButton Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" IconStyle="Square" ToggleText="Segmented Placement" IsChecked="True" IsEnabled="False" />
+                    <toggleButtons:CustomToggleButton Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" IconStyle="Square" ToggleText="Hidden Key Items" IsChecked="True" />
+                </Grid>
+                <common:BioConfigurationGroup GroupTitle="Custom Item Pool" IsGroupEnabled="True" IsGroupTogglelable="True" ContentBackground="#202020" Margin="0,10,0,0" Grid.Row="1">
+                    <common:BioConfigurationGroup.GroupContent>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <!--Item Pickup Disctribution-->
+                            <common:BioConfigurationGroup Margin="0,10,0,0" GroupTitle="Item Pickup Distribution" IsGroupTogglelable="False" IsGroupEnabled="True" ContentBackground="#272727">
+                                <common:BioConfigurationGroup.GroupContent>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <!--PieChart-->
+                                        <common:BioPieChart Margin="20,0,20,0" />
+
+                                        <!--Sliders-->
+                                        <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center">
+                                            <common:BioSlider SliderTitle="Gunpowder Probability" LowText="None" HighText="High" d:Visibility="Visible" Visibility="Collapsed" />
+                                            <common:BioSlider Margin="0,10,0,0" SliderTitle="Ammo Probability" LowText="None" HighText="High" />
+                                            <common:BioSlider Margin="0,10,0,0" SliderTitle="Health Probability" LowText="None" HighText="High" />
+                                            <common:BioSlider Margin="0,10,0,0" SliderTitle="Ink Ribbon Probability" LowText="None" HighText="High" />
+                                        </StackPanel>
+                                        <!--Ammo Quantity-->
+                                        <common:BioSlider Grid.Row="1" Grid.ColumnSpan="2" Margin="0,10,0,0" SliderTitle="Ammo Average Quantity Per Pickup" LowText="None" HighText="High" />
+                                    </Grid>
+                                </common:BioConfigurationGroup.GroupContent>
+                            </common:BioConfigurationGroup>
+
+
+                            <!--Random Inventory-->
+                            <common:BioConfigurationGroup Grid.Row="1" Margin="0,10,0,0" GroupTitle="Random Inventory" IsGroupTogglelable="True" IsGroupEnabled="True" ContentBackground="#272727">
+                                <common:BioConfigurationGroup.GroupContent>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel Margin="10,0,10,0" Orientation="Vertical">
+                                            <TextBlock Text="Weapon 1:" Margin="0,0,0,5"/>
+                                            <ComboBox Grid.Row="1" SelectedIndex="0" HorizontalContentAlignment="Center">
+                                                <ComboBoxItem Content="None" />
+                                                <ComboBoxItem Content="Random" />
+                                                <ComboBoxItem Content="Sidearm" />
+                                                <ComboBoxItem Content="Primary" />
+                                                <ComboBoxItem Content="Powerful" />
+                                            </ComboBox>
+                                        </StackPanel>
+                                        <StackPanel Grid.Column="1" Margin="10,0,10,0"  Orientation="Vertical">
+                                            <TextBlock Text="Weapon 2:" Margin="0,0,0,5"/>
+                                            <ComboBox Grid.Row="1" SelectedIndex="0" HorizontalContentAlignment="Center">
+                                                <ComboBoxItem Content="None" />
+                                                <ComboBoxItem Content="Random" />
+                                                <ComboBoxItem Content="Sidearm" />
+                                                <ComboBoxItem Content="Primary" />
+                                                <ComboBoxItem Content="Powerful" />
+                                            </ComboBox>
+                                        </StackPanel>
+                                    </Grid>
+
+                                </common:BioConfigurationGroup.GroupContent>
+                            </common:BioConfigurationGroup>
+
+                            <!--Random Weapons-->
+                            <common:BioConfigurationGroup Grid.Row="2" Margin="0,10,0,0" GroupTitle="Random Weapons" IsGroupTogglelable="False" IsGroupEnabled="True" ContentBackground="#272727">
+                                <common:BioConfigurationGroup.GroupContent>
+                                    <!--<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Todo..."  FontStyle="Italic" Foreground="DarkGray"/>-->
+                                    <Grid HorizontalAlignment="Center">
+                                        <ListView ItemContainerStyle="{StaticResource UnFocusableListViewItemStyle}" ItemsSource="{Binding WeaponItems}">
+                                            <ListView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <local:WeaponItem Margin="2" />
+                                                </DataTemplate>
+                                            </ListView.ItemTemplate>
+                                            <ListView.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <WrapPanel VerticalAlignment="Center" Orientation="Horizontal"/>
+                                                </ItemsPanelTemplate>
+                                            </ListView.ItemsPanel>
+                                        </ListView>
+                                    </Grid>
+                                </common:BioConfigurationGroup.GroupContent>
+                            </common:BioConfigurationGroup>
+                        </Grid>
+                    </common:BioConfigurationGroup.GroupContent>
+                </common:BioConfigurationGroup>
+            </Grid>
+        </common:BioConfigurationGroup.GroupContent>
+    </common:BioConfigurationGroup>
+</UserControl>

@@ -1,0 +1,185 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net472</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ImplicitUsings>disable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Resources\Icons\biorand.ico" />
+    <None Remove="Resources\Images\RE1\logo.png" />
+    <None Remove="Resources\Images\RE1\Players\Chris.png" />
+    <None Remove="Resources\Images\RE1\Players\Jill.png" />
+    <None Remove="Resources\Images\RE1\Weapons\Bazooka.png" />
+    <None Remove="Resources\Images\RE1\Weapons\Beretta.png" />
+    <None Remove="Resources\Images\RE1\Weapons\FlameThrower.png" />
+    <None Remove="Resources\Images\RE1\Weapons\Magnum.png" />
+    <None Remove="Resources\Images\RE1\Weapons\RocketLauncher.png" />
+    <None Remove="Resources\Images\RE1\Weapons\Shotgun.png" />
+    <None Remove="Resources\Images\RE2\logo.png" />
+    <None Remove="Resources\Images\RE2\Players\Claire.png" />
+    <None Remove="Resources\Images\RE2\Players\Leon.png" />
+    <None Remove="Resources\Images\RE2\Players\Random.png" />
+    <None Remove="Resources\Images\RE2\Weapons\Beretta.png" />
+    <None Remove="Resources\Images\RE2\Weapons\Bowgun.png" />
+    <None Remove="Resources\Images\RE2\Weapons\ColtSAA.png" />
+    <None Remove="Resources\Images\RE2\Weapons\Flamethrower.png" />
+    <None Remove="Resources\Images\RE2\Weapons\GrenadeLauncher.png" />
+    <None Remove="Resources\Images\RE2\Weapons\HandgunClaire.png" />
+    <None Remove="Resources\Images\RE2\Weapons\HandgunLeon.png" />
+    <None Remove="Resources\Images\RE2\Weapons\Magnum.png" />
+    <None Remove="Resources\Images\RE2\Weapons\None.png" />
+    <None Remove="Resources\Images\RE2\Weapons\RocketLauncher.png" />
+    <None Remove="Resources\Images\RE2\Weapons\Shotgun.png" />
+    <None Remove="Resources\Images\RE2\Weapons\SMG.png" />
+    <None Remove="Resources\Images\RE2\Weapons\Sparkshot.png" />
+    <None Remove="Resources\Images\RE3\logo.png" />
+    <None Remove="Resources\Images\RE3\Players\Jill.png" />
+    <None Remove="Resources\Images\RE3\Weapons\AssaultRiffle.png" />
+    <None Remove="Resources\Images\RE3\Weapons\Beretta.png" />
+    <None Remove="Resources\Images\RE3\Weapons\Eagle.png" />
+    <None Remove="Resources\Images\RE3\Weapons\GrenadeLauncher.png" />
+    <None Remove="Resources\Images\RE3\Weapons\Magnum.png" />
+    <None Remove="Resources\Images\RE3\Weapons\MineThrower.png" />
+    <None Remove="Resources\Images\RE3\Weapons\RocketLauncher.png" />
+    <None Remove="Resources\Images\RE3\Weapons\ShotgunBeneli.png" />
+    <None Remove="Resources\Images\RE3\Weapons\ShotgunM37.png" />
+    <None Remove="Resources\Images\RE3\Weapons\Sigpro.png" />
+    <None Remove="Resources\Images\RECVX\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Prism.Unity" Version="8.1.97" />
+    <PackageReference Include="Prism.Wpf" Version="8.1.97" />
+    <PackageReference Include="QRCoder" Version="1.4.3" />
+    <PackageReference Include="System.Text.Json" Version="8.0.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\biohazard-utils\src\IntelOrca.Biohazard\IntelOrca.Biohazard.csproj" />
+    <ProjectReference Include="..\IntelOrca.Biohazard.BioRand\IntelOrca.Biohazard.BioRand.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Images\RE2\Items\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\biorand.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE1\logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE1\Players\Chris.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE1\Players\Jill.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE1\Weapons\Bazooka.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE1\Weapons\Beretta.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE1\Weapons\FlameThrower.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE1\Weapons\Magnum.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE1\Weapons\RocketLauncher.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE1\Weapons\Shotgun.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE2\logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE2\Players\Claire.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE2\Players\Leon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE2\Players\Random.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE2\Weapons\Beretta.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE2\Weapons\Bowgun.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE2\Weapons\ColtSAA.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE2\Weapons\Flamethrower.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE2\Weapons\GrenadeLauncher.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE2\Weapons\HandgunClaire.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE2\Weapons\HandgunLeon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE2\Weapons\Magnum.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE2\Weapons\None.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE2\Weapons\RocketLauncher.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE2\Weapons\Shotgun.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE2\Weapons\SMG.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE2\Weapons\Sparkshot.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE3\logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE3\Players\Jill.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE3\Weapons\AssaultRiffle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE3\Weapons\Beretta.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE3\Weapons\Eagle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE3\Weapons\GrenadeLauncher.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE3\Weapons\Magnum.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE3\Weapons\MineThrower.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE3\Weapons\RocketLauncher.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE3\Weapons\ShotgunBeneli.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE3\Weapons\ShotgunM37.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RE3\Weapons\Sigpro.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RECVX\logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+</Project>

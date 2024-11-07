@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="biorand.app.Views.Common.BioSlider"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:biorand.app.Views.Common"
+             mc:Ignorable="d" 
+             d:MinWidth="250">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.ColumnSpan="4" Text="{Binding SliderTitle, RelativeSource={RelativeSource AncestorType=UserControl}}" FontSize="14" Typography.Capitals="AllSmallCaps" />
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding LowText, RelativeSource={RelativeSource AncestorType=UserControl}}" Margin="10,0,0,0" FontSize="14" Typography.Capitals="AllSmallCaps"/>
+        <Slider Grid.Row="1" Grid.Column="1" SmallChange="1" LargeChange="4" Minimum="0" Maximum="{Binding Maximum, RelativeSource={RelativeSource AncestorType=UserControl}}" ValueChanged="Slider_ValueChanged" />
+        <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding HighText, RelativeSource={RelativeSource AncestorType=UserControl}}" Margin="0,0,10,0" FontSize="14" Typography.Capitals="AllSmallCaps"/>
+    </Grid>
+</UserControl>
