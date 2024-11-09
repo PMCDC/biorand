@@ -12,6 +12,7 @@ namespace biorand.app.ViewModels.Player
         private string _displayName = string.Empty;
         private string _name = string.Empty;
         private bool _isFacePngAvailable;
+        private bool _isSmallFace;
         private BioVersion _bioVersion;
 
         public PlayerListItemViewModel()
@@ -23,6 +24,7 @@ namespace biorand.app.ViewModels.Player
         public string DisplayName { get => _displayName; set => SetProperty(ref _displayName, value); }
         public string Name { get => _name; set => SetProperty(ref _name, value); }
         public bool IsFacePngAvailable { get => _isFacePngAvailable; set => SetProperty(ref _isFacePngAvailable, value); }
+        public bool IsSmallFace { get => _isSmallFace; set => SetProperty(ref _isSmallFace, value); }
         public BioVersion BioVersion { get => _bioVersion; set => SetProperty(ref _bioVersion, value); }
     }
 

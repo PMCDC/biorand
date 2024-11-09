@@ -52,7 +52,7 @@
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <ToggleButton Grid.Column="0" Margin="8,0,10,0" Style="{StaticResource SwapToggleButton}" IsChecked="{Binding IsSwapCharacterEnabled}" ToolTipService.InitialShowDelay="0">
+                    <ToggleButton Grid.Column="0" Margin="8,0,10,0" Style="{StaticResource SwapToggleButton}" IsChecked="{Binding IsSwapCharacterEnabled}" ToolTipService.InitialShowDelay="0" Visibility="{Binding IsSwapCharacterAvailable, Converter={StaticResource BoolToVisibilityConverter}}">
                         <ToggleButton.ToolTip>
                             <StackPanel Orientation="Vertical">
                                 <TextBlock Text="Swap Characters:" FontWeight="Bold" />

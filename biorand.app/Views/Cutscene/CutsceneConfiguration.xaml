@@ -8,6 +8,7 @@
              xmlns:toggleButtons="clr-namespace:biorand.app.Controls.ToggleButtons"
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True"
+             Visibility="{Binding IsAvailable, Converter={StaticResource BoolToVisibilityConverter}}"
              mc:Ignorable="d">
     <common:BioConfigurationGroup GroupTitle="Randomize Cutscenes" IsGroupEnabled="True" IsGroupTogglelable="True">
         <common:BioConfigurationGroup.ToolTip>
@@ -55,7 +56,7 @@
                         </Border>
                     </toggleButtons:CustomToggleButton.ToolTip>
                 </toggleButtons:CustomToggleButton>
-                <toggleButtons:CustomToggleButton Grid.Row="2" ToggleText="Random events" IconStyle="Square" HorizontalAlignment="Left">
+                <toggleButtons:CustomToggleButton Grid.Row="2" ToggleText="Random events" IconStyle="Square" HorizontalAlignment="Left" Visibility="{Binding IsCustomEventAvailable, Converter={StaticResource BoolToVisibilityConverter}}">
                     <toggleButtons:CustomToggleButton.ToolTip>
                         <Border>
                             <StackPanel Orientation="Vertical">

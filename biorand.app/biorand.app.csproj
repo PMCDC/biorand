@@ -4,6 +4,7 @@
     <TargetFramework>net472</TargetFramework>
     <UseWPF>true</UseWPF>
     <ImplicitUsings>disable</ImplicitUsings>
+    <ApplicationIcon>Resources\Icons\biorand.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Resources\Icons\biorand.ico" />
@@ -46,6 +47,11 @@
     <None Remove="Resources\Images\RE3\Weapons\ShotgunM37.png" />
     <None Remove="Resources\Images\RE3\Weapons\Sigpro.png" />
     <None Remove="Resources\Images\RECVX\logo.png" />
+    <None Remove="Resources\Images\RECVX\Players\Chris.png" />
+    <None Remove="Resources\Images\RECVX\Players\Claire.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Icons\biorand.ico" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Prism.Unity" Version="8.1.97" />
@@ -179,6 +185,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Images\RECVX\logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RECVX\Players\Chris.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\RECVX\Players\Claire.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
@@ -16,17 +17,16 @@ namespace biorand.app.Resources.Converters
 
             // Parse the parameter to the enum type
             var enumType = value.GetType();
-            if (Enum.IsDefined(enumType, parameter))
+
+            var parameters = parameter.ToString().Split('|');
+            foreach (var enumValueName in parameters)
             {
-                try
+                if (Enum.IsDefined(enumType, enumValueName))
                 {
-                    var enumValue = Enum.Parse(enumType, parameter.ToString());
-                    return value.Equals(enumValue) ? Visibility.Visible : Visibility.Collapsed;
-                }
-                catch (Exception)
-                {
-                    //todo -> log something here or revise this part
-                    return Visibility.Collapsed;
+                    if (value.Equals(Enum.Parse(enumType, enumValueName)))
+                    {
+                        return Visibility.Visible;
+                    }
                 }
             }
 

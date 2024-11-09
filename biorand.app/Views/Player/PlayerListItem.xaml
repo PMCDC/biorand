@@ -9,6 +9,7 @@
              mc:Ignorable="d">
     <Grid>
         <StackPanel Orientation="Vertical">
+            <!--Face IMG is available-->
             <Grid Visibility="{Binding IsFacePngAvailable, Converter={StaticResource BoolToVisibilityConverter}}">
                 <Image d:Source="/Resources/Images/RE2/Players/Leon.png" Source="{Binding FacePngPath}" Width="40" ToolTipService.InitialShowDelay="0">
                     <Image.ToolTip>
@@ -19,10 +20,9 @@
                 </Image>
             </Grid>
 
-            <!-- RE1 (if face.png does not exist, mock it)-->
+            <!-- NO FACE IMG - Mock it (RE1 dimensions)-->
             <Grid Visibility="{Binding IsFacePngAvailable, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=negate}">
-                <Grid d:Margin="0,5,0,0" Background="#000828" HorizontalAlignment="Center" Visibility="{Binding BioVersion, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter={x:Static bio:BioVersion.Biohazard1}}"
-                  ToolTipService.InitialShowDelay="0">
+                <Grid d:Margin="0,5,0,0" Background="#000828" HorizontalAlignment="Center" Visibility="{Binding IsSmallFace, Converter={StaticResource BoolToVisibilityConverter}}" ToolTipService.InitialShowDelay="0">
                     <Grid.ToolTip>
                         <ToolTip>
                             <TextBlock Text="{Binding DisplayName}" />
@@ -42,12 +42,9 @@
                 </Grid>
             </Grid>
 
-
-
-            <!--RE2 (if face.png does not exist, mock it)-->
+            <!-- NO FACE IMG - Mock it (RE2, RE3 and RECVX dimensions)-->
             <Grid Visibility="{Binding IsFacePngAvailable, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=negate}">
-                <Grid d:Margin="0,5,0,0" Background="#000828" Visibility="{Binding BioVersion, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter={x:Static bio:BioVersion.Biohazard2}}"
-                  ToolTipService.InitialShowDelay="0">
+                <Grid d:Margin="0,5,0,0" Background="#000828" ToolTipService.InitialShowDelay="0" Visibility="{Binding IsSmallFace, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=negate}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="40" />
                     </Grid.ColumnDefinitions>
@@ -66,30 +63,6 @@
                     <Image Grid.Row="1" Source="{StaticResource UserIcon}" Width="30" />
                 </Grid>
             </Grid>
-
-            <!--RE3 (if face.png does not exist, mock it)-->
-            <Grid Visibility="{Binding IsFacePngAvailable, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=negate}">
-                <Grid d:Margin="0,5,0,0" Background="#000828" Visibility="{Binding BioVersion, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter={x:Static bio:BioVersion.Biohazard3}}"
-                  ToolTipService.InitialShowDelay="0">
-                    <Grid.ToolTip>
-                        <ToolTip>
-                            <TextBlock Text="{Binding DisplayName}" />
-                        </ToolTip>
-                    </Grid.ToolTip>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="9" />
-                        <RowDefinition Height="45" />
-                    </Grid.RowDefinitions>
-                    <Border Background="#000000">
-                        <TextBlock d:Text="JILL" Text="{Binding DisplayName, StringFormat={}{0:ToUpper}}" FontSize="8" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#809870" FontWeight="Bold" />
-                    </Border>
-                    <Image Grid.Row="1" Source="{StaticResource UserIcon}" Width="30" />
-                </Grid>
-            </Grid>
-
         </StackPanel>
     </Grid>
 </UserControl>

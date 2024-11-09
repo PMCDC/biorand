@@ -10,6 +10,7 @@ namespace biorand.app.Extensions
         [DllImport("DwmApi")]
         private static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, int[] attrValue, int attrSize);
         const int DWWMA_CAPTION_COLOR = 35;
+        const int DWMWA_USE_IMMERSIVE_DARK_MODE = 20;
 
         /// <summary>
         /// Apply a dark <b>Title Bar</b> on a Window.
@@ -19,9 +20,24 @@ namespace biorand.app.Extensions
         /// <param name="window"></param>
         public static void SetDarkTitleBar(this Window window)
         {
+            window.SetDarkTitleBarForWindows10();
+        }
+
+        private static void SetDarkTitleBarForWindows11(this Window window)
+        {
             IntPtr hWnd = new WindowInteropHelper(window).EnsureHandle();
             int[] colorstr = new int[] { 0x202020 };
             DwmSetWindowAttribute(hWnd, DWWMA_CAPTION_COLOR, colorstr, 4);
+        }
+
+        private static void SetDarkTitleBarForWindows10(this Window window)
+        {
+            window.SourceInitialized += (s, e) =>
+            {
+                IntPtr hWnd = new WindowInteropHelper(window).Handle;
+                int[] colorstr = new int[] { 0x202020 };
+                DwmSetWindowAttribute(hWnd, DWMWA_USE_IMMERSIVE_DARK_MODE, colorstr, 4);
+            };
         }
     }
 }

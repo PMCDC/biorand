@@ -1,4 +1,5 @@
-﻿using biorand.app.ViewModels.Game;
+﻿using biorand.app.ViewModels.Cutscene;
+using biorand.app.ViewModels.Game;
 using biorand.app.ViewModels.Item;
 using biorand.app.ViewModels.Player;
 using biorand.app.ViewModels.Seed;
@@ -22,6 +23,7 @@ namespace biorand.app.ViewModels
         private PlayerConfigurationViewModel _playerConfigurationViewModel;
         private SeedConfigurationViewModel _seedConfigurationViewModel;
         private ItemConfigurationViewModel _itemConfigurationViewModel;
+        private CutsceneConfigurationViewModel _cutsceneConfigurationViewModel;
 
         private string _bioRandVersion;
 
@@ -37,6 +39,7 @@ namespace biorand.app.ViewModels
             PlayerConfigurationViewModel = new PlayerConfigurationViewModel(_appContext) { IsEnabled = true };
             SeedConfigurationViewModel = new SeedConfigurationViewModel(_appContext);
             ItemConfigurationViewModel = new ItemConfigurationViewModel(_appContext);
+            CutsceneConfigurationViewModel = new CutsceneConfigurationViewModel(_appContext);
             BioRandVersion = "UI Revision Branch";
 
             NavigateUriClickCommand = new DelegateCommand<string>(OnNavigateUriClickCommand);
@@ -47,6 +50,7 @@ namespace biorand.app.ViewModels
         public PlayerConfigurationViewModel PlayerConfigurationViewModel { get => _playerConfigurationViewModel; set => SetProperty(ref _playerConfigurationViewModel, value); }
         public SeedConfigurationViewModel SeedConfigurationViewModel { get => _seedConfigurationViewModel; set => SetProperty(ref _seedConfigurationViewModel, value); }
         public ItemConfigurationViewModel ItemConfigurationViewModel { get => _itemConfigurationViewModel; set => SetProperty(ref _itemConfigurationViewModel, value); }
+        public CutsceneConfigurationViewModel CutsceneConfigurationViewModel { get => _cutsceneConfigurationViewModel; set => SetProperty(ref _cutsceneConfigurationViewModel, value); }
         public string BioRandVersion { get => _bioRandVersion; set => SetProperty(ref _bioRandVersion, value); }
         public DelegateCommand<string> NavigateUriClickCommand { get; }
 
@@ -58,6 +62,7 @@ namespace biorand.app.ViewModels
             PlayerConfigurationViewModel.RefreshControls();
             SeedConfigurationViewModel.RefreshControls();
             ItemConfigurationViewModel.RefreshControls();
+            CutsceneConfigurationViewModel.RefreshControls();
         }
 
         private void OnNavigateUriClickCommand(string uri)
